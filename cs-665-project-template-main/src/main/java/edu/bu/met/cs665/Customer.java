@@ -27,11 +27,8 @@ public class Customer {
 		if (sugar < 0) sugar = 0;
 		if (milk > 3) milk = 3;
 		if (milk < 0) milk = 0;
-		
-		if (DrinkType.equals("Espresso") || DrinkType.equals("Americano") || DrinkType.equals("Latte"))
-			_drink = new Coffee(DrinkType, sugar, milk);
-		else
-			_drink = new Tea(DrinkType, sugar, milk);
+	
+		_drink = new HotDrink(DrinkType, sugar, milk);
 	}
 	
 	/**
