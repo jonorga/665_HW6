@@ -2,47 +2,39 @@
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
 | Name         | Jonathan Organ             |
-| Date         | 11/6/2023                  |
+| Date         | 11/22/2023                 |
 | Course       | Fall                       |
-| Assignment # | 4                          |
+| Assignment # | 6                          |
 
 # Assignment Overview
-In this assignment the objective was to create a system that facilitates the integration of the
-old system's interface with the new systems interface. To test the system, various USBConnectVisitor
-and USBConnect objects were instantiated and customers were given dummy values, the results of these
-values were then tested with the assertEquals method. All methods are also tested through the JUnit 
-tests. I implemented the visitor pattern to solve this problem.
+In this assignment the objective was to refactor a previous assignment. This included specifically
+going through a project to find three areas to refactor.
 
 # GitHub Repository Link:
-https://github.com/jonorga/665_HW4
+https://github.com/jonorga/665_HW6
 
 # Implementation Description 
 
 
-For each assignment, please answer the following:
+Areas that were refactored:
 
-- Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
-	* As per the design of the visitor pattern, any new class can be added and visit any class
-	that implements the CustomerData_USB interface. This allows classes to be deleted if they're
-	not being used anymore, and new classes can be added as long as they implement the 
-	CustomerData_HTTPS interface.
-- Discuss the simplicity and understandability of your implementation, ensuring that it is
-easy for others to read and maintain.
-	* To ensure simplicity and understandability I made sure each class only had information that 
-	they needed, this allows for high cohesion to make the classes more understandable. I've also
-	commented each file and method for clarification about their functions.
-- Describe how you have avoided duplicated code and why it is important.
-	* I avoided duplicated code by having various methods of the concrete class use other methods
-	of their class instead of copying and pasting the contents of that method into each other method.
-	This is important as it will help avoid bugs down the road if that section of code has to be changed,
-	it will only need to be changed in one place. 
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
-	* I used the visitor pattern for this assignment as it required two currently incompatible interfaces
-	to work together. The visitor pattern also allows for minimal change to the legacy code to avoid 
-	creating any new bugs. The visitor pattern also allows for new classes to be added down the road
-	should new customer data methods arrise.
+- Project template
+	* The original project was created without a proper project template. The correct project template
+	was added.
+- Coffee/Tea class duplicate code
+	* The Coffee and Tea class, while possibly offering some utility down the road, current just had 
+	duplicate code. To reconcile this I combined the two classes into one new class called HotDrink.
+- Customer constructor simplification
+	* Combining the Coffee and Tea class into one class left an unnecessary complication in the 
+	customer constructor involving an if-else clause to determine whether to assign coffee or tea. To
+	fix this I removed the if-else clause and now the drink assigns to HotDrink.
+- File/method documentation added
+	* There wasn't any documentation on the files or methods in the previous submission. I have added
+	documentation to each file and method.
+- Pattern added
+	* This project was created without any pattern in mind. Consolidating the Tea and Coffee class was
+	done with the purpose of implementing the strategy pattern. Although the Drink class is an abstract
+	class instead of an interface, it serves the same purpose.
 
 
 # Maven Commands
